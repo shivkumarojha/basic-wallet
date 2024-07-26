@@ -4,12 +4,18 @@
   "description": "Paytm backend build with express prisma ",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "esbuild src/index.ts --bundle --platform=node --outdir=dist --watch",
+    "dev": " nodemon dist/index.js"
   },
   "author": "Shiv kumar ojha",
   "license": "ISC",
   "dependencies": {
     "@types/express": "^4.17.21",
-    "expess": "^0.0.1-security"
+    "dotenv": "^16.4.5",
+    "esbuild": "^0.23.0",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }
