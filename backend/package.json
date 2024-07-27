@@ -10,12 +10,14 @@
   "author": "Shiv kumar ojha",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.17.0",
     "@types/express": "^4.17.21",
     "dotenv": "^16.4.5",
     "esbuild": "^0.23.0",
     "express": "^4.19.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "prisma": "^5.17.0"
   }
 }
