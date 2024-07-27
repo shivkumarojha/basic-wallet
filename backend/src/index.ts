@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import express from "express"
-import { rootRouter } from './routes'
+import  router  from './routes'
 import cors from "cors"
 
 const app = express()
@@ -17,7 +17,7 @@ app.get("/health", (req, res) => {
     })
 })
 
-app.use("api/v1", rootRouter)
+app.use("/api/v1", router)
 app.listen(process.env.PORT, () => {
     console.log("Server is running at port " + process.env.PORT)
 })

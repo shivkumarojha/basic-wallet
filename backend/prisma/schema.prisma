@@ -19,12 +19,14 @@ model User {
   email    String   @unique
   userName String   @unique
   name     String
+  password String
   Account  Account?
 }
 
 // account Model
 model Account {
-  id     Int  @id @default(autoincrement())
-  user   User @relation(fields: [userId], references: [id])
-  userId Int  @unique
+  id      Int  @id @default(autoincrement())
+  user    User @relation(fields: [userId], references: [id])
+  userId  Int  @unique
+  balance Int
 }
