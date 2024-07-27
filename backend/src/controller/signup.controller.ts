@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { z } from "zod";
 import { PrismaClient } from "@prisma/client";
+import { hashpassword } from "../utils/password.utils";
 
 // Creating prisma client
 const prisma = new PrismaClient()
@@ -22,12 +23,15 @@ export async function signup(req: Request, res: Response) {
         })
     }
 
-    const { email, userName, password, name} = parsedData.data
+    const { email, userName, password, name } = parsedData.data
+
+    // hash the password
+    const hashedPassword = await hashpassword(password)
     try {
         const newUser = await prisma.user.create({
             data: {
                 email,
-                password,
+                password: hashedPassword,
                 userName,
                 name
             },
